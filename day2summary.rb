@@ -7,3 +7,31 @@ end
 p (1..10).to_a
 p ("a".."z").to_a
 p ("A".."Z").to_a
+
+# Explore the following array methods
+
+# 1. length
+
+# 2. index
+
+# 3. join
+array = ["a", "b", "c"]
+array.join        #=> "abc"
+array.join("-")   #=> "a-b-c"
+
+# 4. include?
+array.include?("a")
+
+# 5. empty?
+[].empty?
+# 6. sample
+a = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+a.sample         #=> 7
+a.sample(4)      #=> [6, 4, 2, 5]
+# 7. transpose
+a = [[1,2], [3,4], [5,6]]
+a.transpose   #=> [[1, 3, 5], [2, 4, 6]]
+# 8. sort
+a = [ "d", "a", "e", "c", "b" ]
+a.sort                    #=> ["a", "b", "c", "d", "e"]
+a.sort { |x,y| y <=> x }  #=> ["e", "d", "c", "b", "a"]
