@@ -22,9 +22,9 @@ def to_roman(num)
 end
 
 #Testcases
-# puts to_roman(1)
-# puts to_roman(3)
-# puts to_roman(5)
-# puts to_roman(6)
-# puts to_roman(555)
-# puts to_roman(1101)
+puts to_roman(1)
+puts to_roman(3)
+puts to_roman(5)
+puts to_roman(6)
+puts to_roman(555)
+puts to_roman(1101)
