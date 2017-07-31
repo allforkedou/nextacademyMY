@@ -11,7 +11,7 @@ def run
 	puts 'Type a word:'
 	word = gets.chomp.downcase
 	while(word != '')
-		if (!word.is_a?(String))
+		if ((/\d/ =~ word) || (/\s/ =~ word)) #if word includes digits or whitespace
 			#do nothing
 		elsif (arr.include? word)
 			#do nothing

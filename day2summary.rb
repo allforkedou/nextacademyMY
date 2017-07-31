@@ -62,3 +62,45 @@ head
 #=> nil
 tail
 #=> []
+
+numbers = [1, 2, 3, 4]
+double_numbers = numbers.map do |number|
+	2 * number
+end
+
+#Destructive methods
+#With !(exclamation point), you will change the original values
+
+# 1. Create a string and explore the methods reverse vs reverse!
+s = 'PPAP'
+p s.reverse
+p s #PPAP
+p s.reverse!
+p s #PAPP
+
+# 2. Create a string and explore the methods slice vs slice!
+s = 'PPAP'
+p s.slice(2..3)
+p s #still PPAP
+p s.slice!(2..3)
+p s #left PP
+
+# 3. Create an array and explore the methods shuffle vs shuffle!
+arr = (1..10).to_a
+p arr.shuffle
+p arr
+p arr.shuffle!
+p arr
+
+# 4. Create an array and explore the methods select vs select!
+arr = (1..10).to_a
+p arr.select{|x| x.even?}
+p arr
+p arr.select!{|x| x.even?}
+p arr
+
+%w(foo bar) #is a shortcut for ["foo", "bar"]
+%w[ant bear cat].all? { |word| word.length >= 3 } #=> true
+%w[ant bear cat].all? { |word| word.length >= 4 } #=> false
+[nil, true, 99].all?                              #=> false
+[].all?                                           #=> true
