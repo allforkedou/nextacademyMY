@@ -35,3 +35,30 @@ a.transpose   #=> [[1, 3, 5], [2, 4, 6]]
 a = [ "d", "a", "e", "c", "b" ]
 a.sort                    #=> ["a", "b", "c", "d", "e"]
 a.sort { |x,y| y <=> x }  #=> ["e", "d", "c", "b", "a"]
+
+#parallel assignment
+a, b = 1, 2
+#=> [1, 2]
+a
+#=> 1
+b
+#=> 2
+
+list = [1,2,3,4]
+#=> [1,2,3,4]
+head, *tail = list
+#=> [1,2,3,4]
+head
+#=> 1
+tail
+#=> [2,3,4]
+
+list # is not modified
+#=> [1,2,3,4]
+
+head, *tail = []
+#=> []
+head
+#=> nil
+tail
+#=> []
