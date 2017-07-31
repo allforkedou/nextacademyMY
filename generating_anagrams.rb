@@ -10,8 +10,7 @@ end
 def anagrams_for(word, arr_words)
 	canon = canonical(word)
 	hash = {}
-	arr = []
-	hash[canon] = arr
+	hash[canon] = []
 	for i in 0..arr_words.length-1
 		if(is_anagram?(word, arr_words[i]))
 			hash[canon] << arr_words[i]
