@@ -1,7 +1,11 @@
 def print_and_sort(array)
   output_string = ""
   array.each do |element|
-    output_string = output_string + " " + element
+    if (element.nil?)
+      #do nothing
+    else
+      output_string = output_string + " " + element.to_s
+    end
   end
   puts output_string
   array.sort
