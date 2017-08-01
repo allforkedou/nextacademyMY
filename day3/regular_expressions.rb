@@ -36,7 +36,7 @@ puts grab_all_ssns("please confirm your identity: XXX-XX-1422") == []
 
 # Obfuscate all of the Social Security numbers in a string. Example: XXX-XX-4430.
 def hide_all_ssns(string)
-	string.gsub(/\d{3}-\d{2}-\d{4}/, )
+	string.gsub(/(\d{3})-(\d{2})-\d{4}/, )
 end
 
 puts "hide_all_ssns obfuscates any SSNs in the string"
