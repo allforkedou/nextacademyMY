@@ -41,7 +41,8 @@ def convert_sentence_to_pig_latin(sentence)
 	words = sentence.split(/\W+/)
 	rubbish = sentence.split(/\w+/)
 	for i in (0..words.length)
-		pig_sentence += rubbish[i].to_s + convert_word_to_pig_latin(words[i])
+		pig_sentence += rubbish[i].to_s + convert_word_to_pig_latin(words[i]) 
+		#put rubbish at first because it has empty string
 	end
 	return pig_sentence
 end
