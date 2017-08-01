@@ -1,7 +1,7 @@
 # TODO: Print the elements at indices 1, 3, 5, 7, etc. on separate lines.
 #       You should make use of Enumerable#each_with_index
 def print_odd_indexed_integers(array)
-	array.all? {|x| x.odd? puts x }
+	array.each_with_index {|x, index| puts x if index.odd?}
 end
 
 # TODO: Return the odd numbers from a list of integers.
@@ -19,19 +19,23 @@ end
 # TODO: Take an Array of Strings and return a new Array with an exclamation point appended to each String.
 #       You should make use of Enumerable#map
 def add_bang(array)
-
+	return array.map {|x| x+'!'}
 end
 
 # TODO: Calculate the sum of an Array of numbers.
 #       You should make use of Enumerable#reduce
 def sum(array)
-
+	return array.reduce(:+)
 end
 
 # TODO: Reorganize an Array of the elements into groups of 3, and then sort each group alphabetically.
 #       You should make use of Enumerable#each_slice
 def sorted_triples(array)
-
+	arr = []
+	array.each_slice(3){|x| 
+		arr << x.sort
+	}
+	return arr
 end
 
 # Driver code... don't change this.
