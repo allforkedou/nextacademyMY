@@ -1,11 +1,14 @@
 def print_and_sort(array)
   output_string = ""
-  array.each do |element|
-    if (element.nil?)
-      #do nothing
+  array.map! do |x|
+    if x.nil?
+      "nil"
     else
-      output_string = output_string + " " + element.to_s
+      x.to_s
     end
+  end
+  array.each do |element|
+    output_string = output_string + " " + element
   end
   puts output_string
   array.sort
