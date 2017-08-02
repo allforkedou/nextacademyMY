@@ -1,15 +1,7 @@
-users = [
-	{ name: "Tom", gender: "M", email: "tom@example.com" },
-	# write your code here
-  	{ name: "Rachel", gender: "F", email: "rachel@example.com"},
-	{ name: "Brenda", gender: "F", email: "brenda@example.com"}
-]
-
-users.each do |user|
-	p user[:name], user[:gender], user[:email]
- end
-# (Extra credit: display the details of each user in one line.
-# For example: "Tom", "M", "tom@example.com" will be in the first line, and the details of the second user will be in the second line, etc.)
-users.each do |user|
-	puts user[:name]+", "+user[:gender]+", "+user[:email]
+def harsh(arr1,arr2)
+	[arr1, arr2].inject({}) do |r, s|
+	  r.merge!({s[0] => s[1]})
+	end
 end
+
+p harsh(["Number", "Name", "Position", "Points per Game"],[12, "Joe Schmo", "Center", [14, 32, 7, 0, 23] ])
