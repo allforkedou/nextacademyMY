@@ -1,48 +1,15 @@
-# Example 2: Nested Arrays
-people = 
-  [ [1, "Kevin", true],
-    [2, "Aiman", false],
-    [3, "Er Whey", false],
-    [4, "Shin Yin", true],
-    [5, "Audrey", false],
-    [6, "Colin", true]
-  ] 
+users = [
+	{ name: "Tom", gender: "M", email: "tom@example.com" },
+	# write your code here
+  	{ name: "Rachel", gender: "F", email: "rachel@example.com"},
+	{ name: "Brenda", gender: "F", email: "brenda@example.com"}
+]
 
-# Extract the first row
-people[0]
-# Extract the third row
-people[2]
-# Extract the last row
-people[-1]
-# Extract the element "Kevin"
-people[0][1]
-# Extract the element 5
-people[4][0]
-# What do you get when you run the following code? Why?
-p people[6]
-#error, only 0 to 5
-
-# Run the following code, what do you observe? In particular, what is the data type of row?
-people.each do |row|
-  p row
-end
-
-# Run the following code, what do you observe?
-people.each do |row|
-  p row[0], row[1], row[2]
-  puts "================="
-end
-
-# Run the following code, what do you observe?
-people.each do |row|
-  row.each do |element|
-    p element
-    puts "=============="
-  end
-end
-
-
-# Run the following code, what do you observe?
-people.each.with_index do |row, ppap|
-  p row, ppap
+users.each do |user|
+	p user[:name], user[:gender], user[:email]
+ end
+# (Extra credit: display the details of each user in one line.
+# For example: "Tom", "M", "tom@example.com" will be in the first line, and the details of the second user will be in the second line, etc.)
+users.each do |user|
+	puts user[:name]+", "+user[:gender]+", "+user[:email]
 end
