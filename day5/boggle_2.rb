@@ -39,7 +39,7 @@
 # Now try implementing your algorithm for the real boggle rules! The words don’t have to be in continuous lines, they can be connected in any way, diagonally, vertically, horizontally, in any order, i.e. words can snake themselves across the board willy-nilly.
 
 # What do you need to change to accommodate this added requirement? Does it make sense to change the structure of your board? Again, model this before coding, make sure you are aware of all the cases.
-require 'matrix'
+require "matrix"
 class BoggleBoard
     @@dice = [
               [%w{A A E E G N},
@@ -67,9 +67,9 @@ class BoggleBoard
   end
 
   def shake!
-    @board = @@dice.map do |arr| 
+    @board = (@@dice.map do |arr| 
               arr.map {|x| x=x[rand(6)]}
-            end
+            end)
   end
 
   # Defining to_s on an object controls how the object is
@@ -91,43 +91,49 @@ class BoggleBoard
     end
   end
 
-  def check_neighbors()
-    up          = Vector [0, 1]
-    down        = Vector [0, -1]
-    left        = Vector [-1, 0]
-    right       = Vector [1, 0]
-    upper_left  = Vector [-1, 1]
-    lower_left  = Vector [-1, -1]
-    upper_right = Vector [1, 1]
-    lower_right = Vector [1, -1]
+  def check_neighbors(current_char,word_remaining)
+    if(word_remaining == '')
+      return true
+    else
 
-
-
+      for i in -1..1
+        for j in -1..1
+          for k in 0..check_hash(current_char).length-1
+            p check_hash(word_remaining[0])
+            if check_hash(word_remaining[0]).include?(check_hash(current_char)[k]+Vector[i,j])
+              return check_neighbors(word_remaining[0],word_remaining[1,-1])
+            else
+              return false
+            end
+          end
+        end
+      end
+    end
   end
 
-  def chars_hash(char)
-    if(chars_hash[char].nil?)
-      chars_hash[char] = []
-      for i in range(0..3)
-        for j in range(0..3)
+  def check_hash(char)
+    if(@chars_hash[char].nil?)
+      @chars_hash[char] = []
+      for i in 0..3
+        for j in 0..3
           if (@board[i][j] == char)
-            chars_hash[char] << Vector[i,j]
+            @chars_hash[char] << Vector[i,j]
           end
         end
       end
     else
       #do nothing
     end
-    return chars_hash[char]
+    return @chars_hash[char]
   end
 
   def include? (word)
-    include_word = false
     for i in 0..word.length-1
-        if (chars_hash(word[i])==[])
+        if (check_hash(word[i])==[])
           return false
+        end
     end
-    return include_word
+    return check_neighbors(word[0],word[1..-1])
   end
 
 end
@@ -137,3 +143,4 @@ end
   board = BoggleBoard.new
   board.shake!
   puts board
+  puts board.include?('AE')
