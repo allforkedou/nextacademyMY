@@ -39,6 +39,7 @@
 # Now try implementing your algorithm for the real boggle rules! The words don’t have to be in continuous lines, they can be connected in any way, diagonally, vertically, horizontally, in any order, i.e. words can snake themselves across the board willy-nilly.
 
 # What do you need to change to accommodate this added requirement? Does it make sense to change the structure of your board? Again, model this before coding, make sure you are aware of all the cases.
+require 'matrix'
 class BoggleBoard
     @@dice = [
               [%w{A A E E G N},
@@ -61,6 +62,8 @@ class BoggleBoard
 
   def initialize
     @board = Array.new(4){Array.new(4)} #Would be easier to just make a 16x1 matrix
+    @travelled = Array.new(4, false){Array.new(4, false)}
+    @chars_hash = {}
   end
 
   def shake!
@@ -87,7 +90,49 @@ class BoggleBoard
       puts @board[i].join(" ")
     end
   end
+
+  def check_neighbors()
+    up          = Vector [0, 1]
+    down        = Vector [0, -1]
+    left        = Vector [-1, 0]
+    right       = Vector [1, 0]
+    upper_left  = Vector [-1, 1]
+    lower_left  = Vector [-1, -1]
+    upper_right = Vector [1, 1]
+    lower_right = Vector [1, -1]
+
+
+
+  end
+
+  def chars_hash(char)
+    if(chars_hash[char].nil?)
+      chars_hash[char] = []
+      for i in range(0..3)
+        for j in range(0..3)
+          if (@board[i][j] == char)
+            chars_hash[char] << Vector[i,j]
+          end
+        end
+      end
+    else
+      #do nothing
+    end
+    return chars_hash[char]
+  end
+
+  def include? (word)
+    include_word = false
+    for i in 0..word.length-1
+        if (chars_hash(word[i])==[])
+          return false
+    end
+    return include_word
+  end
+
 end
+
+
 
   board = BoggleBoard.new
   board.shake!
