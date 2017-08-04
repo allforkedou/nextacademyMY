@@ -1,3 +1,5 @@
+#This is the version that can find all words but will use repeated dice
+
 require "matrix"
 class BoggleBoard
     @@dice = [
@@ -26,7 +28,7 @@ class BoggleBoard
   end
 
   def shake!
-    @board = [%w{P P A P},%w{A B C D]},%w{L M A O},%w{A S I A}]
+    @board = [%w{P P A P},%w{A B C D},%w{L M A O},%w{A S I A}]
   end
 
   # Defining to_s on an object controls how the object is
@@ -49,25 +51,20 @@ class BoggleBoard
   end
 
   def check_neighbors(current_char,word_remaining)
-    if(word_remaining == '')
+    if(word_remaining == "")
       return true
     else
-
+      # p current_char, word_remaining
       for i in -1..1
         for j in -1..1
           for k in 0..check_hash(current_char).length-1
-            p check_hash(current_char)
-            p check_hash(word_remaining[0])
-            final_boolean = 
-            if check_hash(word_remaining[0]).include?(check_hash(current_char)[k]+Vector[i,j]) #Solve here
-              #After this consider the case the collision of using the same die
-              return check_neighbors(word_remaining[0],word_remaining[1,-1])
-            else
-              return false
+            if check_hash(word_remaining[0]).include?(check_hash(current_char)[k]+Vector[i,j])
+              return check_neighbors(word_remaining[0], word_remaining[1..-1])
             end
           end
         end
       end
+      return false
     end
   end
 
@@ -103,4 +100,4 @@ end
   board = BoggleBoard.new
   board.shake!
   puts board
-  puts board.include?('ASIA')
+  puts board.include?('PALASIA')
