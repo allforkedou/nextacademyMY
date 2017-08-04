@@ -23,7 +23,6 @@ class BoggleBoard
 
   def initialize
     @board = Array.new(4){Array.new(4)} #Would be easier to just make a 16x1 matrix
-    @travelled = Array.new(4, false){Array.new(4, false)}
     @chars_hash = {}
   end
 
@@ -50,7 +49,7 @@ class BoggleBoard
     end
   end
 
-  def check_neighbors(current_char,word_remaining)
+  def check_neighbors(current_char,word_remaining,travelled)
     if(word_remaining == "")
       return true
     else
@@ -58,8 +57,11 @@ class BoggleBoard
       for i in -1..1
         for j in -1..1
           for k in 0..check_hash(current_char).length-1
-            if check_hash(word_remaining[0]).include?(check_hash(current_char)[k]+Vector[i,j])
-              return check_neighbors(word_remaining[0], word_remaining[1..-1])
+            if (check_hash(word_remaining[0])-[check_hash(current_char)[k]]-travelled).include?(check_hash(current_char)[k]+Vector[i,j])
+              travelled << check_hash(current_char)[k]
+              p travelled
+              p Vector[i,j]
+              return check_neighbors(word_remaining[0], word_remaining[1..-1],travelled)
             end
           end
         end
@@ -90,7 +92,7 @@ class BoggleBoard
           return false
         end
     end
-    return check_neighbors(word[0],word[1..-1])
+    return check_neighbors(word[0],word[1..-1],[])
   end
 
 end
@@ -100,4 +102,4 @@ end
   board = BoggleBoard.new
   board.shake!
   puts board
-  puts board.include?('PALASIA')
+  puts board.include?('PPAPP')
