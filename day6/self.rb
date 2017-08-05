@@ -30,3 +30,8 @@ end
 #   end
 # end
 p Mathematics.hypot(3,4)
+
+The Golden Three Rules of Self
+Use self when setting/getting instance attributes inside a class definition.
+Use self to denote a method within the class definition as a class method.
+Use self to reference the calling object within an instance method definition.
