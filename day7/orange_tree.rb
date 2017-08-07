@@ -37,12 +37,12 @@ class NoOrangesError < StandardError
 end
 
 class OrangeTree
-  attr_reader :height, :age, :oranges
+  attr_reader :height, :age, :num_of_oranges
 
   def initialize(age = 0, height = 0) #this will automatically initialize age and height to 0
     @age = age
     @height = height
-    @oranges = 0
+    @num_of_oranges = 0
   end
 
     # Ages the tree one year
@@ -53,7 +53,7 @@ class OrangeTree
     else
       @age += 1 if self.age<100
       @height += 10 if self.height<50
-      @oranges += 10 if self.age>=10
+      @num_of_oranges += 10 if self.age>=10
     end
   end
 
@@ -63,7 +63,7 @@ class OrangeTree
 
   # Returns +true+ if there are any oranges on the tree, +false+ otherwise
   def any_oranges?
-    if(self.age>=10 and !self.dead? and self.oranges>0)
+    if(self.num_of_oranges>0)
       return true
     else
       return false
@@ -75,7 +75,7 @@ class OrangeTree
   def pick_an_orange!
     raise NoOrangesError, "This tree has no oranges" unless self.any_oranges?
     # orange-picking logic goes here
-    @oranges -= 1
+    @num_of_oranges -= 1
     return Orange.new
   end
 end
