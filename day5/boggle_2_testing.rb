@@ -23,7 +23,7 @@ class BoggleBoard
 
   def initialize
     @board = Array.new(4){Array.new(4)} #Would be easier to just make a 16x1 matrix
-    @travelled = Array.new(4, false){Array.new(4, false)}
+    @travelled = []
     @chars_hash = {}
   end
 
@@ -58,7 +58,9 @@ class BoggleBoard
       for i in -1..1
         for j in -1..1
           for k in 0..check_hash(current_char).length-1
-            if check_hash(word_remaining[0]).include?(check_hash(current_char)[k]+Vector[i,j])
+            if ((check_hash(word_remaining[0])- @travelled).include?(check_hash(current_char)[k]+Vector[i,j])) and (is_adjacent(check_hash(current_char)[k]))
+                @travelled << check_hash(current_char)[k]
+                p @travelled
               return check_neighbors(word_remaining[0], word_remaining[1..-1])
             end
           end
@@ -66,6 +68,21 @@ class BoggleBoard
       end
       return false
     end
+  end
+
+  def is_adjacent(vector)
+    for i in -1..1
+      for j in -1..1
+        if(@travelled.nil?)
+          return true
+        elsif (@travelled[-1]+Vector[i,j] == vector)
+          return true
+        else
+          #do nothing
+        end
+      end
+    end
+    return false
   end
 
   def check_hash(char)
@@ -100,4 +117,4 @@ end
   board = BoggleBoard.new
   board.shake!
   puts board
-  puts board.include?('PALASIA')
+  puts board.include?('PPAP')

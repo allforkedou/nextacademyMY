@@ -1,5 +1,4 @@
-#This is the version that can find all words but will use repeated dice
-
+#Depth First Traversal (DFS) method
 require "matrix"
 class BoggleBoard
     @@dice = [
@@ -21,8 +20,12 @@ class BoggleBoard
               %w{D E I L R X}]
             ]
 
+    @@moves = 
+
   def initialize
     @board = Array.new(4){Array.new(4)} #Would be easier to just make a 16x1 matrix
+    @visited = Array.new(4){Array.new(4,false)}
+    @dictonary = []
     @chars_hash = {}
   end
 
@@ -49,57 +52,46 @@ class BoggleBoard
     end
   end
 
-  def check_neighbors(current_char,word_remaining,travelled)
-    if(word_remaining == "")
+  def findWords(visited, i, j, str)
+    @visited[i][j] = true
+    str += @board[i][j]
+    if isWord(str)
+      return true
+    end
+
+    for row in i-1..i+1
+      for col in j-1..j+1
+          if (row>=0 and col>=0) and !visited[i][j]
+            findWords(@visited, row, col, str)
+          end
+      end
+    end
+
+  end
+
+  def isWord(str)
+    if (dictionary.include?(str))
       return true
     else
-      # p current_char, word_remaining
-      for i in -1..1
-        for j in -1..1
-          for k in 0..check_hash(current_char).length-1
-            if (check_hash(word_remaining[0])-[check_hash(current_char)[k]]-travelled).include?(check_hash(current_char)[k]+Vector[i,j])
-              travelled << check_hash(current_char)[k]
-              p travelled
-              p Vector[i,j]
-              return check_neighbors(word_remaining[0], word_remaining[1..-1],travelled)
-            end
-          end
-        end
-      end
       return false
     end
   end
 
-  def check_hash(char)
-    if(@chars_hash[char].nil?)
-      @chars_hash[char] = []
-      for i in 0..3
-        for j in 0..3
-          if (@board[i][j] == char)
-            @chars_hash[char] << Vector[i,j]
-          end
-        end
-      end
-    else
-      #do nothing
-    end
-    return @chars_hash[char]
-  end
-
   def include? (word)
-    for i in 0..word.length-1
-        if (check_hash(word[i])==[])
-          return false
-        end
+    @dictionary << word
+    for i in 0..3
+      for j in 0..3
+        findWords(@visited, i, j, "", word)
+      end
     end
-    return check_neighbors(word[0],word[1..-1],[])
+
   end
 
 end
 
 
 
-  board = BoggleBoard.new
-  board.shake!
-  puts board
-  puts board.include?('PPAPP')
+board = BoggleBoard.new
+board.shake!
+puts board
+puts board.include?('PPAPP')
