@@ -20,13 +20,10 @@ class BoggleBoard
               %w{D E I L R X}]
             ]
 
-    @@moves = 
-
   def initialize
     @board = Array.new(4){Array.new(4)} #Would be easier to just make a 16x1 matrix
     @visited = Array.new(4){Array.new(4,false)}
-    @dictonary = []
-    @chars_hash = {}
+    @dictionary = []
   end
 
   def shake!
@@ -52,39 +49,44 @@ class BoggleBoard
     end
   end
 
-  def findWords(visited, i, j, str)
-    @visited[i][j] = true
+  def findWord(visited, i, j, str)
+    visited[i][j] = true
     str += @board[i][j]
-    if isWord(str)
+    if(str == @dictionary[0])
       return true
     end
-
-    for row in i-1..i+1
-      for col in j-1..j+1
-          if (row>=0 and col>=0) and !visited[i][j]
-            findWords(@visited, row, col, str)
-          end
+    if partofWord(str)
+      for row in i-1..i+1
+        for col in j-1..j+1
+            if (row>=0 and col>=0) and (!visited[i][j]) and (row<=3 and col<=3)
+              findWords(visited, row, col, str)
+            end
+        end
       end
-    end
-
-  end
-
-  def isWord(str)
-    if (dictionary.include?(str))
-      return true
     else
-      return false
+      str.chop
+      visited[i][j] = false
     end
   end
 
-  def include? (word)
+  def partofWord(str)
+    l = @dictionary[0].length-str.length
+    p l
+    if @dictionary.include?(str+/\w{l}/)
+      p (/str\w{@dictionary[0].length-str.length}/)
+      return true
+    end
+  end
+
+  def include?(word)
     @dictionary << word
+    visited = Array.new(4){Array.new(4,false)}
     for i in 0..3
       for j in 0..3
-        findWords(@visited, i, j, "", word)
+        findWord(visited, i, j, "")
       end
     end
-
+    return false
   end
 
 end
@@ -94,4 +96,4 @@ end
 board = BoggleBoard.new
 board.shake!
 puts board
-puts board.include?('PPAPP')
+puts board.include?('PPAP')
