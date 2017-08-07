@@ -71,4 +71,3 @@ end
 
 my_acct = BankAccount.new("Junipero Serra", "Checking", "347-923-239")
 p my_acct.to_s
-p my_acct.send
