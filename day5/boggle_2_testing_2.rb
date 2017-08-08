@@ -81,8 +81,6 @@ class BoggleBoard
   def include?(word)
     @dictionary << word
     visited = Array.new(4){Array.new(4,false)}
-    for i in 0..3
-      for j in 0..3
         findWord(visited, i, j, "")
       end
     end
