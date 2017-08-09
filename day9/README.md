@@ -26,11 +26,6 @@ We want to write code that works like this:
 board = BoggleBoard.new
 puts board
 # An unshaken board prints out something sensible, like:
-# ____
-# ____
-# ____
-# ____
-
 # Shake (and modify) the board
 board.shake!
 
