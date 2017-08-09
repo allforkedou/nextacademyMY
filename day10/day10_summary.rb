@@ -138,3 +138,13 @@ end
 # 	Create private method to ensure privacy
 # 6.The Law of Demeter
 # 	Avoid chaining methods
+
+# How can I put cursor on every line in Sublime Text?
+
+# Four steps:
+
+# Select all the text: CTRL A
+# Activate multi-cursors: CTRL (or CMD on Mac) SHIFT L
+# Press the Home key to move all cursors to the front of the line
+# Press the " quote key to insert the quote.
+# Using the Home End and CTRL + left | right arrow keys is handy when managing multiple cursors.
