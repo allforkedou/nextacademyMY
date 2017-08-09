@@ -17,4 +17,3 @@ describe "Sudoku" do
     end
   end
 end
-

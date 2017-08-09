@@ -137,7 +137,7 @@ end #Class' end, DO NOT DELETE
 
 # The file has newlines at the end of each line, so we call
 # String#chomp to remove them.
-board_string = File.readlines('sample_unsolved_2.txt').first.chomp
+board_string = "800000500004000000005800906003070200540000000700054000000200001300000000008900000"
 game = Sudoku.new(board_string)
 
 # Remember: this will just fill out all the "logically necessary" cells and not "guess"
