@@ -25,25 +25,25 @@ We want to write code that works like this:
 
 board = BoggleBoard.new
 puts board
-# An unshaken board prints out something sensible, like:
-# Shake (and modify) the board
+ An unshaken board prints out something sensible, like:
+ Shake (and modify) the board
 board.shake!
 
 puts board
-# Prints out:
-# DUMV
-# KSPD
-# HCDA
-# ZOHG
+ Prints out:
+ DUMV
+ KSPD
+ HCDA
+ ZOHG
 
 board.shake!
 puts board
 
-# We've shaken again, so a new random board:
-# QIRZ
-# EEBY
-# OEJE
-# MHCU
+ We've shaken again, so a new random board:
+ QIRZ
+ EEBY
+ OEJE
+ MHCU
 2. Smart(er) Boggle Board
 
 We need to model the dice, now. Think carefully about how shaking a Boggle board works. Each die lands in one and only one cell, with one side facing up.
