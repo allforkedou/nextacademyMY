@@ -153,3 +153,30 @@ end
 #https://en.wikipedia.org/wiki/Standard_streams
 
 #CTRL+L to clear irb or terminal screen
+
+# load is used when you want to import a file irrespective of whether it has been already imported. require or require_relative is used when you want to import a file only if it has not been already.
+
+# From this, it follows that the former is used when the imported file is the object of analysis (data file), whereas the latter is used to provide some features to be used in the program (part of the program, library, framework).
+
+# While require can only handle paths relative to $:, require_relative is an extension that can handle paths relative to current directory as well. require_relative is a superset of require, and require can be dispensed (although require_relative is written using require, so it has to be rewritten if require is to be dispensed).
+
+#Useful codes from racer_utils.rb
+# Use "reputs" to print over a previously printed line,
+# assuming the cursor is positioned appropriately.
+def reputs(str = '')
+  puts "\e[0K" + str
+end
+
+# Clear the screen
+def clear_screen!
+  print "\e[2J"
+end
+
+# Moves cursor to the top left of the terminal
+def move_to_home!
+  print "\e[H"
+end
+
+#Fill an array with the same element 5 times
+Array.new(5, str)
+# => [1234, 1234, 1234, 1234, 1234]
