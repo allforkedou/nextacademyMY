@@ -148,3 +148,8 @@ end
 # Press the Home key to move all cursors to the front of the line
 # Press the " quote key to insert the quote.
 # Using the Home End and CTRL + left | right arrow keys is handy when managing multiple cursors.
+
+#Link to read about standard streams
+#https://en.wikipedia.org/wiki/Standard_streams
+
+#CTRL+L to clear irb or terminal screen
