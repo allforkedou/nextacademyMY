@@ -180,3 +180,35 @@ end
 #Fill an array with the same element 5 times
 Array.new(5, str)
 # => [1234, 1234, 1234, 1234, 1234]
+
+i = player.scan(/\d+/).first.to_i - 1
+
+#ARGV is to enter parameters in command line
+
+Passing Multiple Arguments in Ruby: “*” is your friend
+
+def make_a_speech(**components)
+  introduction = components[:introduction]
+  inappropriate_anecdote = components[:inappropriate_anecdote]
+  long_winded_moralizing = components[:long_winded_moralizing]
+  conclusion = components[:conclusion]
+
+  # Now put it all together ...
+end
+
+To a file:
+
+require 'csv'
+CSV.open("myfile.csv", "w") do |csv|
+  csv << ["row", "of", "CSV", "data"]
+  csv << ["another", "row"]
+  # ...
+end
+To a string:
+
+require 'csv'
+csv_string = CSV.generate do |csv|
+  csv << ["row", "of", "CSV", "data"]
+  csv << ["another", "row"]
+  # ...
+end

@@ -162,7 +162,7 @@ end #This is Class' end! DO NOT DELETE!
 
   #Testcases
   # puts board.include?('PPAP')
-  # puts board.include?('PPAPP')
+  puts board.include?('PPAPP')
   # puts board.include?('CQU')
   # puts board.include?('B')
   # puts board.include?('PALASIAA')
