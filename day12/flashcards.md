@@ -19,8 +19,11 @@ Correct!
 
 Definition
 and so on ...
+
 Objectives
+----
 Design Your Data Model and Control Flow
+---
 
 You might already have a clear picture of how to design your program, but it is always a good idea to articulate your concept using pseudocode, wireframes, or another modeling tool. You should be able to draw or write out a rough sketch of both the data model and the control flow of the program.
 
@@ -37,6 +40,7 @@ Once you have a plan in place, create the skeletal file structure for your app.
 Find a staff member or another student and get their opinion on your overall structure.
 
 Cards in a file
+----
 
 The next step is to answer the question of where the cards will come from. Provided to you is a file called flashcard_samples.txt, which demonstrates a supremely basic way to store the card data (definition on one line, term on the next, and then a blank line to separate the two). In other words, the file looks like:
 
@@ -48,6 +52,7 @@ term2 term2 term2 etc.
 You can use this same file format for your cards if you like, or you can create your own. Just don’t get too fancy. Remember, we’re keeping it simple.
 
 Core architecture
+----
 
 Now that you’ve got a general sketch for your app design and some sample data to work with, it’s time to build out your app.
 
@@ -58,7 +63,9 @@ Some questions to consider:
 How will you generate card objects from the source file?
 How will your classes interact?
 Where should the game logic live? What about the file parsing?
+
 Interface design
+----
 
 By this point, you should have all of the core components of your application built out. In other words, your code should be an accurate model of the ingredients needed for a real-life flashcard game. Are you missing anything?
 
@@ -75,6 +82,7 @@ How will you handle incorrect answers?
 Finish building out your app. Make sure everything works peachy keen.
 
 Post-challenge questions
+----
 
 Why did you organize your classes and logic in the way that you did?
 What have you learned about object-oriented thinking?
