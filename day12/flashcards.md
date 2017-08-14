@@ -1,4 +1,5 @@
 Ruby Flashcards: Single Deck
+----
 Let’s build a simple flashcard game in Ruby with a command-line interface. Here is an example of one possible implementation:
 
 $ ruby flashcards.rb
@@ -17,7 +18,7 @@ Guess: CSV
 Correct!
 
 Definition
-# and so on ...
+and so on ...
 Objectives
 Design Your Data Model and Control Flow
 
