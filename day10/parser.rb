@@ -107,7 +107,7 @@ class PersonParser
   end
 
   def save
-    CSV.open("people.csv", "wb", {:write_headers=>true, :headers => [:id,:first_name,:last_name,:email,:phone_number,:created_at]}) do |csv|
+    CSV.open("people_parsed.csv", "wb", {:write_headers=>true, :headers => [:id,:first_name,:last_name,:email,:phone_number,:created_at]}) do |csv|
       @people.each do |person|
         csv << [person.id, person.first_name, person.last_name, person.email, person.phone_number, person.created_at]
       end
@@ -125,13 +125,13 @@ class PersonParser
 end #<-- DO NOT DELETE, it's class PersonParser's end
 
 # # Testcase
-# parser = PersonParser.new('people.csv')
-# puts "There are #{parser.people.size} people in the file '#{parser.file}'." #200
+parser = PersonParser.new('people.csv')
+puts "There are #{parser.people.size} people in the file '#{parser.file}'." #200
 
-# ahkao = Person.new(id: 201, first_name: "Kao", last_name: "Lat", email: "kaolat996@gmail.com", phone_number: "96996")
-# parser.add_person(ahkao)
-# puts "There are #{parser.people.size} people in the file '#{parser.file}'." #201
+ahkao = Person.new(id: 201, first_name: "Kao", last_name: "Lat", email: "kaolat996@gmail.com", phone_number: "96996")
+parser.add_person(ahkao)
+puts "There are #{parser.people.size} people in the file '#{parser.file}'." #201
 
-# parser.save
+parser.save
 
 

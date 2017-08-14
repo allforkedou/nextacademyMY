@@ -111,8 +111,6 @@
 # Note that (4) is where the essence of your application lives.
 # Pretty much every application in the universe has some version of responsibilities (1), (2), and (3).
 require 'csv'
-
-#This is the version to pass rspec
 class Task
 	attr_accessor :title, :completed
 
@@ -135,20 +133,20 @@ class List
 		return @tasks if @tasks
 		parsed = []
 		CSV.foreach(file) do |row|
-			# task = Task.new(row[1])
-			# task.completed = true if row[0] == 'Y'
-			parsed << Task.new(row)
+			task = Task.new(row[1])
+			task.completed = true if row[0] == 'Y'
+			parsed << task
 		end
 		@tasks = parsed
 		return @tasks
 	end
 
 	def save
-		CSV.open("todo_test.csv", "wb") do |csv|
+		CSV.open("todo_parsed.csv", "wb") do |csv|
     		@tasks.each do |task|
-    			# y_or_n = 'N'
-    			# y_or_n = 'Y' if task.completed == true
-        		csv << [task.title]
+    			y_or_n = 'N'
+    			y_or_n = 'Y' if task.completed == true
+        		csv << [y_or_n, task.title]
     		end
     	end
 	end
@@ -169,11 +167,11 @@ class List
 end
 
 # Testcase
-# list = List.new('todo.csv')
-# puts "There are #{list.tasks.size} tasks in the file '#{list.file}'."
+list = List.new('todo.csv')
+puts "There are #{list.tasks.size} tasks in the file '#{list.file}'."
 
-# task = 'Complete todo.rb'
-# list.add(task)
-# list.delete(1)
-# puts "There are #{list.tasks.size} tasks in the file '#{list.file}'."
+task = 'Complete todo.rb'
+list.add(task)
+list.delete(1)
+puts "There are #{list.tasks.size} tasks in the file '#{list.file}'."
 
