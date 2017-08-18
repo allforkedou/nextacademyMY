@@ -1,0 +1,114 @@
+
+Time
+~ 30 minutes
+Learning Goals	
+Navigate between directories
+Create a new directory
+Delete a directory
+List files in a directory
+Identify the directory you are in
+Move a file between from one directory to another
+Copy a file or directory
+Open a file in a text editor
+In one of Week 1’s challenges, you have been introduced to two commmand lines: pwd and ls. Now that you have got your machine set up, let’s learn more command lines!
+
+This is a very handy trick to learn up your sleeves and will be very crucial during the course of learning to code.
+
+One example of how useful command lines are can be seen when navigating through many files and folders (and this happens a lot while coding!). Instead of clicking into folders one by one to look for what you need (like how we usually do when searching for our favourite picture buried under a ton of folders), using command lines to get to what we want is the key to a better search-and-find experience. The command line is also used to tell the computer to run your code.
+
+All these usages are just the tip of the iceberg. There will be a lot more you can do with command line which you will discover throughout your lifetime as a developer.
+
+Objective
+Let’s learn how to do the following in the terminal:
+
+Navigate between directories
+Create a new directory
+Delete a directory
+List files in a directory
+Identify the directory I am in
+Move a file between from one directory to another
+Copy a file or directory
+Open a file in a text editor
+Let’s get to work!
+
+Open up your terminal.
+
+a. Mac: You can do this by searching for terminal in your Mac’s Spotlight or finding terminal in your application folder.
+
+b. Ubuntu: Go to your Dash and search for terminal.
+
+Check which directory you are in now by typing pwd.
+
+Change directory to Desktop by typing: cd Desktop.
+
+For efficiency, you can first type the first few letters and then press the Tab key. For example, type De and then tab. The complete word for Desktop will appear. However, if you have more than one file/folder that starts with De, it will appear at the bottom, type the next few letters and press Tab again.
+
+You should now in your Desktop folder. If you want to, type pwd to check.
+
+Let’s now see what files there are on your Desktop. Type ls. A list of files and/or folders should appear.
+
+Ok, let’s practice the cd command again. Now type cd and then pwd. Which directory are you at now?
+
+cd back to your Desktop and pwd to make sure you are in the Desktop.
+
+Let’s now learn how to create a directory (or folder) in your Desktop. Do this by typing mkdir test_folder.
+
+Type ls. You should see the name test_folder appear in the list of directories and files displated.
+
+Now cd to that test_folder by typing: cd test_folder.
+
+We can create a new file by typing: touch test.rb. Type ls to check that the file is in the list of the files and directories displayed.
+
+To open the file in Sublime/Atom, we can do the following:
+
+a. Ubuntu/Xubuntu: for Sublime, type subl test.rb; for Atom, type atom test.rb.
+
+b. Mac OSX, for Sublime, type subl test.rb; for Atom, type atom test.rb.
+
+For Sublime users, if you are having issues with opening up the file via the command line, you might have to do some configurations. Please go to the bottom of this lesson for more details.
+
+Now type some code in your test.rb file. For example, puts "Hello World!". Save the file and go back to your terminal.
+
+Run your Ruby programme by typing ruby test.rb, as what you have always been doing in Ronin.
+
+Let’s now move this file to the Desktop. The command line for move is mv. Note that since your file is inside the test_folder folder, and the test_folder is one level below your Desktop, we have to use the .. syntax to help us navigate up TWO levels up. Let’s move the file to the Desktop by typing the following:
+
+mv test.rb ../../Desktop
+Type ls now. The file test.rb
+
+Now cd to Desktop (remember you have to up two levels!). Type ls and check that your test.rb is indeed on the Desktop.
+
+Now it’s your turn! Figure out how to delete a file or directory. The command is rm name_of_file.rb for deleting files, and rm -r name_of_directory for deleting folders. Go research on what the option -rmeans!
+
+Figure out also how to copy a file or directory (the command is cp). Research on how to use it. You can first create files/directory and play around with the command.
+
+Remember! Keep on practising until this becomes natural to you! For more practice, check out this reference: Command Line Crash Course
+
+Configurations for opening Sublime files via the terminal:
+
+For Mac and Sublime 2:
+
+a. Open up your bash profile by doing nano ~/.bash_profile.
+
+b. Copy and paste the following line at the bottom:
+
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+c. Press Ctrl-X. A dialog box will appear to ask if you want to to save the modifications. Press “Y” and “Enter”.
+
+For Mac and Sublime 3:
+
+a. Open up your bash profile by doing nano ~/.bash_profile.
+
+b. Copy and paste the following line at the bottom:
+
+alias subl=/Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl`
+c. Press Ctrl-X. A dialog box will appear to ask if you want to to save the modifications. Press “Y” and “Enter”.
+
+For Ubuntu/Xubuntu users:
+
+a. Do ls /usr/bin and check that you have a subl folder there. If yes, then do
+
+sudo ln -s /opt/sublime/sublime_text /usr/bin/subl
+b. Else, do ls /usr/local/bin and check that you have a subl folder there. Then do
+
+  sudo ln -s /opt/sublime/sublime_text /usr/local/bin/
