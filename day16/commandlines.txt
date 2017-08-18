@@ -66,6 +66,7 @@ a. Ubuntu/Xubuntu: for Sublime, type subl test.rb; for Atom, type atom test.rb.
 b. Mac OSX, for Sublime, type subl test.rb; for Atom, type atom test.rb.
 
 For Sublime users, if you are having issues with opening up the file via the command line, you might have to do some configurations. Please go to the bottom of this lesson for more details.
+https://stackoverflow.com/questions/16199581/open-sublime-text-from-terminal-in-macos
 
 Now type some code in your test.rb file. For example, puts "Hello World!". Save the file and go back to your terminal.
 

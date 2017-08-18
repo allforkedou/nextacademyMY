@@ -1,0 +1,104 @@
+CREATE TABLE congress_members (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(64) NOT NULL,
+  party VARCHAR(64) NOT NULL,
+  location VARCHAR(64) NOT NULL,
+  grade_1996 REAL, 
+  grade_current REAL, 
+  years_in_congress INTEGER,
+  dw1_score REAL
+, created_at DATETIME, updated_at DATETIME);
+
+CREATE TABLE voters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(64) NOT NULL,
+    last_name  VARCHAR(64) NOT NULL,
+    gender VARCHAR(64) NOT NULL,
+    party VARCHAR(64) NOT NULL,
+    party_duration INTEGER, 
+    age INTEGER,
+    married INTEGER,
+    children_count INTEGER,
+    homeowner INTEGER, 
+    employed INTEGER, 
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
+  );
+
+CREATE TABLE votes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    voter_id INTEGER,
+    politician_id INTEGER,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    FOREIGN KEY(voter_id) REFERENCES voters(id),
+    FOREIGN KEY(politician_id) REFERENCES congress_members(id)
+  );
+
+EXAMPLE (congress_members):
+----------------------------------
+sqlite> select * from congress_members limit 1
+   ...> ;
+               id = 1
+             name = Rep. Mick Mulvaney
+            party = R
+         location = SC
+       grade_1996 = 7.945704026
+    grade_current = 7.945704026
+years_in_congress = 1
+        dw1_score = 0.819
+       created_at = 2012-10-10 15:28:36 -0700
+       updated_at = 2012-10-10 15:28:36 -0700  
+
+EXAMPLE (voters):
+-----------------------------------
+sqlite> select * from voters limit 1
+   ...> ;
+            id = 1
+    first_name = Aiden
+     last_name = Kuhlman
+        gender = male
+         party = democrat
+party_duration = 29
+           age = 71
+       married = 0
+children_count = 3
+     homeowner = 0
+      employed = 0
+    created_at = 2012-10-10 16:25:32 -0700
+    updated_at = 2012-10-10 16:25:32 -0700
+
+EXAMPLE (votes):
+------------------------------------
+sqlite> select * from votes limit 1;
+           id = 1
+     voter_id = 2324
+politician_id = 185
+   created_at = 2012-10-10 16:25:32 -0700
+   updated_at = 2012-10-10 16:25:32 -0700
+
+
+
+
+
+Tips:
+
+yo if you people are doing the challenge `poll db 2`, you'll be updating and deleting the rows in the database provided.
+
+You might wanna keep a backup of the database file before you move on, so you can restore if you mess up the db.
+
+or alternatively you can do this:
+```sqlite> savepoint backup;
+
+# then you'll be doing stuff here
+sqlite> DELETE FROM votes WHERE 1 = 1;
+
+# oh shit i deleted all the votes
+sqlite> SELECT COUNT(*) FROM votes;
+0
+
+# you can do this to restore
+sqlite> rollback to savepoint backup;
+
+sqlite> SELECT COUNT(*) FROM votes;
+10001```

@@ -1,0 +1,40 @@
+Poll DB 1: Queries
+You’ll be working directly with a three table database in the SQLite console. It’s a great opportunity to see the more complex statements you learned from SQL Tutor in action! Use .trace to log all of your commands.
+
+Objectives
+Download and set up the Poll DB
+Download the database here (if you’re doing it on your machine), and open it up with sqlite3 congress_poll_results.db.
+
+Take a look at the schemas included. Type .schema. There should be 3 tables, congress_members, voters, and votes. We’re going to be doing some queries to get some insights into the data set.
+
+We suggest copying the schemas and putting them into a text file that’s easy to reference. You’ll need it as we try to access multiple columns across multiple tables.
+
+Let’s save all the commands you do for reference. Type .trace sql_history.txt. Refer to the sql_history.txt later when we need to paste your commands in a gist. (NOTE: ‘.trace’ only works with the latest version of sqlite3. (If you are having problems running it on a machine with Mac OSX, quit out of the sqlite3 console and type brew link sqlite3 from the command line.)
+
+Query to extract voting data
+Let’s get going with some simple queries.
+
+Count the votes for Sen. Olympia Snowe, whose id is 524.
+
+Now do that query with a JOIN statement without hard-coding the id 524 explicitly, querying both the votes and congress_members table.
+
+How about Rep. Erik Paulsen? How many votes did he get?
+
+Make a list of Congress members that got the most votes, in descending order. Exclude the create_at and updated_at columns.
+
+Now make a list of all the Congress members that got the least number of votes, in ascending order. Again, skip the date columns.
+
+Advanced queries to expose voter fraud
+The Election Board suspects there’s some cheating going on! Help them figure out what is going on and if anyone is to blame.
+
+Which Congress member received the most votes? List their name and a count of their votes. Who were the people that voted for that politician? List their names, gender and party.
+
+How many votes were received by Congress members whose communication grade average was less than 9 (this number can be found in the grade_current field)? List their name, location, grade since 1996, and the vote count.
+
+What 10 states had the most voters turnout? (Does this correspond to the population of those states?) List the people that voted in the top state’s elections. (It will be a big list, and you can use the results from your first query to help simplify this next query.)
+
+List the people that voted more than 2 times? (It should only be once for their Senator and once for their representative!) Ay Caramba! We have some serious ballot stuffing! Report this to the Election Board!
+
+Did anyone vote for the same politician twice? What was the name of the voter and the politician they voted for? Pretty sneaky…
+
+Paste the text from your trace file into the repo and keep it for future reference on JOIN’s and other SQL calls. Include the schemas of the 3 tables in the gist. Include some on the output of the queries if you’re worried you won’t remember all this syntax! To see the expected output, click here!
