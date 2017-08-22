@@ -1,0 +1,14 @@
+Time
+~ 45 minutes
+Learning Goals	
+What is GIT and what is it for?
+How to use one and work with your friends and peers?
+How to generate an SSH key
+Understanding and using basic Git commands for code submission
+How to write a good Git commit message
+
+Git terms:
+git add --> prepares files for commit
+git commit --> saves files as a commit
+git push origin master --> pushes to the origin master
+git push origin branch1 --> pushes to the origin branch1 branch
