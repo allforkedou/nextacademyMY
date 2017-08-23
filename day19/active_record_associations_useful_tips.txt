@@ -1,0 +1,10 @@
+irb(main)> first_student = Student.first
+irb(main)> first_student.teacher = Teacher.first
+irb(main)> first_student.save!
+irb(main)> first_student.teacher
+# => returns the student's teacher
+irb(main)> first_teacher = Teacher.first
+irb(main)> first_teacher.students
+# => returns an array that contains first_student
+
+irb -r ./student.rb -r ./teacher.rb
