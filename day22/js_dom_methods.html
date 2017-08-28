@@ -1,0 +1,94 @@
+<!-- https://www.w3schools.com/js/js_htmldom_document.asp -->
+<!DOCTYPE html>
+<html lang="en">
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: red;
+}
+</style>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Demo</h1>
+	<p>sample</p>
+	<p id="demo1"></p>
+	<p id="demo2"></p>
+	<p id="demo3"></p>
+	<p id="demo4"></p>
+	<p id="demo5"></p>
+	<p id="demo6">coloring yay!</p>
+	<p id="demo7">Click button and change color!</p>
+	<p id="demo8"></p>
+<!-- 	<p id="demo9"></p>
+	<p id="demo8"></p>
+	<p id="demo8"></p>
+	<p id="demo8"></p> -->
+	<div id="main1">
+		<p>hey1</p>
+		<p>hey2</p>
+	</div>
+	<p class="intro">The DOM is very useful.</p>
+
+	<form id="frm1" action="/action_page.php">
+	  First name: <input type="text" name="fname" value="Donald"><br>
+	  Last name: <input type="text" name="lname" value="Duck"><br><br>
+	  <input type="submit" value="Submit">
+	</form> 
+
+	<p>Click "Try it" to display the value of each element in the form.</p>
+
+	<button onclick="myFunction()">Try it</button>
+
+	<p id="demo"></p>
+
+	<!-- <img id="myImage" src="smiley.gif"> -->
+
+	<button type="button" 
+	onclick="document.getElementById('demo7').style.color = 'red'">
+	Click Me to change a para to red!</button>
+
+	<div id="container">
+		<div id="animate"></div>
+	</div>
+
+	<p>
+	<button onclick="myMove()">Click Me for animation</button>
+	</p>
+
+	<button onclick="displayDate()">The time is?</button>
+
+	Enter your name to capitalize: <input type="text" id="fname" onchange="upper()">
+	<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+	style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+	Mouse Over Me</div>
+
+	<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+	style="background-color:#00FB42;width:90px;height:20px;padding:40px;">
+	Click Me</div>
+
+	<button onclick= annoying()>Annoying alert</button>
+
+	<button id="annoyingBtn">Double Annoying alerts</button>
+
+	<p id="demo9">Amazing!!</p>
+	<p id="demo10"></p>
+	<p id="demo11"></p>
+
+	<button onclick="colorAll()">Color all paragraphs</button>
+</body>
+<script src='js_dom_methods.js'></script>
+</html>
+
