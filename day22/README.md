@@ -23,3 +23,6 @@ https://docs.emmet.io/cheat-sheet/
 
 CSS Reference
 http://cssreference.io/
+
+What You Can Do With JS?
+https://jsbin.com/ceralomuso/edit?html,js,output
