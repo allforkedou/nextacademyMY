@@ -15,6 +15,9 @@ https://www.codecademy.com/en/tracks/jquery
 jQuery Selectors
 https://www.w3schools.com/jquery/trysel.asp
 
+jQuery Event Methods
+https://www.w3schools.com/jquery/jquery_events.asp
+
 CSS Specificity Score
 https://css-tricks.com/specifics-on-css-specificity/
 
