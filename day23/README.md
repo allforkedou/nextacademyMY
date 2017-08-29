@@ -35,3 +35,6 @@ https://docs.emmet.io/cheat-sheet/
 
 Building Your First Web Page
 http://learn.shayhowe.com/html-css/building-your-first-web-page/
+
+CodePen for jQuery
+https://codepen.io/search/pens?q=jquery&limit=all&type=type-pens
