@@ -1,0 +1,38 @@
+h1 {
+  color: red;
+}
+
+#id-example {
+  font-family: "Roboto";
+}
+
+.class-example {
+  font-style: italic;
+}
+
+.another-class {
+  font-size: 300%;
+}
+
+h1 {
+  text-align: center;
+  color: blue;
+}
+
+#box {
+  border: 1px solid black;
+  width: 200px;
+  height: 300px;
+  padding-left: 30px;
+  margin: auto;
+}
+
+.makebig {
+  font-size: 200%;
+}
+.turnred {
+  color: red;
+}
+.makebold {
+  font-weight: bold;
+}
