@@ -26,3 +26,6 @@ http://cssreference.io/
 
 What You Can Do With JS?
 https://jsbin.com/ceralomuso/edit?html,js,output
+
+Building Your First Web Page
+http://learn.shayhowe.com/html-css/building-your-first-web-page/
