@@ -1,0 +1,25 @@
+Resful Routes summary:
+In interfacing the web, we only ever have :
+	4 catogories of actions
+		Create
+		Read
+		Update
+		Destroy
+	5 types of verbs to use
+		GET
+		POST
+		PUT
+		PATCH
+		DELETE
+	7 actions to use
+		show: display specific entry
+		new: get the form that allows us to create a new entry
+		create: create a new entry
+		index: index page to display all entries
+		edit: get the form that allows us to update an entry
+		update: update an entry
+		destroy: destroy an entry
+
+More info:
+https://learn.co/lessons/sinatra-restful-routes-readme
+http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/
