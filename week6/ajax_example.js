@@ -18,3 +18,11 @@ $('#button').on('click', function(event) {
 	});
 	
 });
+
+// if @url.save
+// {success: true}.to_json
+
+// in js, 
+// response = JSON.paser(response)
+// if response.sucess === true
+// else $('#error').text('Invalid URL!')
