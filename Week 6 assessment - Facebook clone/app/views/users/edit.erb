@@ -1,0 +1,13 @@
+<form class="form-edit" method="post" action="/users/<%= current_user.id %>">
+	<input type="hidden" name="_method" value="PATCH">
+    <h2 class="form-edit-heading">Edit your Profile</h2>
+	<input type=text placeholder="New Name" required name="user[name]"><br>
+	<input type="email" placeholder="New Email" required autofocus name="user[email]"><br>
+	<input type="password" placeholder="New Password" required name="user[password]"><br>
+	<input type="password" placeholder="Confirm your new password again" required name="user[password_confirmation]"><br>
+    <button class="btn" type="submit">Submit</button>
+</form>
+
+<% if @update_message %>
+	<p><%= @update_message%></p>
+<% end %>

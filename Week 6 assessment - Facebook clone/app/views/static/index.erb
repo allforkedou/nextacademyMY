@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+	    <div class= "col-lg-6 col-sm-12">
+			<form class="form-signup" method="post" action="/users">
+				<h2 class="form-signup-heading">Sign Up</h2>
+				<input type=text placeholder="Name" name="user[name]"><br>
+				<input type="email" placeholder="Email" required autofocus name="user[email]"><br>
+				<input type="password" placeholder="Password" required name="user[password]"><br>
+				<input type="password" placeholder="Confirm your password again" required name="user[password_confirmation]"><br>
+				<button class="btn" type="submit">Sign Up</button>
+			</form>
+			<% if @signup_message %>
+				<p><%= @signup_message%></p>
+			<% end %>
+	    </div>
+
+		<div class= "col-sm-6 col-sm-12">
+			<form class="form-login" method="post" action="/session">
+		        <h2 class="form-login-heading">Login</h2>
+		        <input type="email" placeholder="Email" required autofocus name="user[email]"><br>
+		        <input type="password" placeholder="Password" required name="user[password]"><br>
+		        <button class="btn" type="submit">Login</button>
+	        </form>
+        	<% if @login_message %>
+	        	<p><%= @login_message%></p>
+	        <% end %>
+	    </div>
+	</div>
+</div>

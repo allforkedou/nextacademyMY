@@ -1,0 +1,9 @@
+<h2>Post a status</h2>
+<form method="post" action="/users/<%= current_user.id %>/statuses">
+    <input type=text placeholder="Status Description" name="status_description"><br>
+    <input type=submit value="Submit">
+</form>
+
+<% if @status_message %>
+	<p><%= @status_message%></p>
+<% end %>

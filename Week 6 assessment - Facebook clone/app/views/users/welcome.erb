@@ -1,0 +1,8 @@
+<div class="container">
+	<h1>User Homepage</h1>
+	<p>Welcome <%= current_user.name %></p>
+	<form action="/session" method="post">
+	  <input type="hidden" name="_method" value="DELETE">
+	  <input type="submit" value="log out">
+	</form>
+</div>

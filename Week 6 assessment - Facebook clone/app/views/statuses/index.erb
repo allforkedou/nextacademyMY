@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="page-header">
+		<h1><%= @user.name %>'s Statuses</h1>
+	</div>
+	<% if @statuses %>
+		<% @statuses.each do |status| %>
+			<div class="row">
+				<h3><%= status.id %></h3>
+				<p><%= status.description %></p>
+				<p><a class="btn btn-secondary" href="/users/<%= @user.id %>/statuses/<%= status.id %>" role="button">View more &raquo;</a></p>
+			</div>
+		<% end %>
+	<% end %>
+</div>

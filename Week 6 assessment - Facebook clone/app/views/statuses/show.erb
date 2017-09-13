@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="page-header">
+		<h1><%= @user.name %>'s Status</h1>
+		<%if @status %>
+			<p>Status ID: <%= @status.id %></p>
+			<p>Description: <%= @status.description %></p>
+
+
+			<% if @like %>
+				<% if @like.liked == true %>
+					<% @likeBtnClass = 'btn-success' %>
+					<% @likeBtnText = "Liked" %>
+				<% else %>
+					<% @likeBtnClass = 'btn-secondary' %>
+					<% @likeBtnText = "Like" %>
+				<% end %>
+			<% else %>
+				<% @likeBtnClass = 'btn-secondary' %>
+				<% @likeBtnText = "Like" %>
+			<% end %>
+			<form id="like_form" action="/statuses/<%= @status.id %>/like" method="post">
+				<button type="submit" id = "like" class="btn <%= @likeBtnClass %>"><%= @likeBtnText %> <%= @likes_count %></button>
+			</form>
+
+
+			<% if @user == current_user %>
+				<form class="form-edit" method="get" action="/users/<%= current_user.id %>/statuses/<%= @status.id %>/edit">
+				    <button class="btn" type="submit">Edit</button>
+				</form>
+
+				<form class="form-delete" method="post" action="/users/<%= current_user.id %>/statuses/<%= @status.id %>">
+					<input type="hidden" name="_method" value="DELETE">
+				    <button class="btn" type="submit">Delete</button>
+				</form>
+			<% end %>
+		<% end %>
+		<%if @delete_message %>
+			<p><%= @delete_message %></p>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="page-header">
+		<h1><%= @user.name %>'s Friends</h1>
+		<h2>Total number of friends: <%= @user.friends.count %></h2>
+	</div>
+	<div class="row">
+		<% if @friends %>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Profile Page</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @friends.each do |friend| %>
+						<tr>
+							<td> <%= friend.name %> </td> 
+							<td> <%= friend.email %></td>
+							<td><a href="/users/<%= friend.id %>"><%= friend.name %>'s profile</a></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		<% end %>
+	</div>
+</div>

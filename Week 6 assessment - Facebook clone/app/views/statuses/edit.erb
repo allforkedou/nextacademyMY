@@ -1,0 +1,11 @@
+<form class="form-edit" method="post" action="/users/<%= current_user.id %>/statuses/<%= @status.id %>">
+	<input type="hidden" name="_method" value="PATCH">
+    <h2 class="form-edit-heading">Edit your Status</h2>
+    <p>Status: <%= @status.description %></p>
+	<input type=text placeholder="New description" required name="status_description"><br>
+    <button class="btn" type="submit">Submit</button>
+</form>
+
+<%if @update_message %>
+	<p><%= @update_message %></p>
+<% end %>

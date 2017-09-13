@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="page-header">
+		<h1><%= @user.name %>'s Profile </h1>
+	</div>
+	<form class="form-add-friend" method="post" action="/users/<%= @user.id %>/addfriend">
+	    <button class="btn" type="submit">Add this user as friend</button>
+	</form>
+	<% if @addfriend_message %>
+		<p><%= @addfriend_message %></p>
+	<% end %>
+	<ul>
+		<li><a href="/users/<%= @user.id %>/statuses">View <%= @user.name %>'s Statuses</a></li>
+		<li><a href="/users/<%= @user.id %>/friends">View <%= @user.name %>'s Friends</a></li>
+	</ul>
+</div>
