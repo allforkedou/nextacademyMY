@@ -1,3 +1,10 @@
+
+Congratulations on reaching Week 5! You are at the halfway mark! Woohoo!
+
+What a feat from Ruby to SQL to Active Record! The next few weeks will be exciting as you will be building 3 apps along the way. It will be tough, but look forward to that sense of satisfaction when you see your app deployed onto the cloud! :)
+
+This week you will finally be building AND deploying your very first app! The slides below provide an overview of what will be happening this week. Do go through them to have an idea of what to expect:
+
 Reading on Javascript, DOM Methods, jQuery:
 ----------------------
 Javascript Info
