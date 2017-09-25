@@ -128,9 +128,11 @@ end #Class' end, DO NOT DELETE
 # String#chomp to remove them.
 board_string = File.readlines('sample_unsolved.txt').first.chomp
 game = Sudoku.new(board_string)
-
+game.board
 # Remember: this will just fill out all the "logically necessary" cells and not "guess"
+start = Time.now
 game.solve!
+p Time.now - start
 
 # prints the board with nice formatting to the user
 game.board
